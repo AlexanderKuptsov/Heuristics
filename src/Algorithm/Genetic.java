@@ -3,13 +3,13 @@ package Algorithm;
 
 import java.util.*;
 
-public class Solver {
+public class Genetic {
 
     private int chrLength, generation, populationSize, bestMutationChance, worstMutationChance;
     private float maxWeight, bestWeight, bestCost;
     private List<Item> elements;
 
-    public Solver(List<Item> elements, float maxWeight) {
+    public Genetic(List<Item> elements, float maxWeight) {
         this.elements = elements;
         this.chrLength = elements.size();
         this.maxWeight = maxWeight;
@@ -158,44 +158,12 @@ public class Solver {
                 "  [" + str.toString() + "]");
     }
 
-    public int getGeneration() {
-        return generation;
-    }
-
-    public void setGeneration(int generation) {
-        this.generation = generation;
-    }
-
-    public int getPopulationSize() {
-        return populationSize;
-    }
-
-    public void setPopulationSize(int populationSize) {
-        this.populationSize = populationSize;
-    }
-
-    public float getMaxWeight() {
-        return maxWeight;
-    }
-
-    public void setMaxWeight(float maxWeight) {
-        this.maxWeight = maxWeight;
-    }
-
     public float getBestWeight() {
         return bestWeight;
     }
 
     public float getBestCost() {
         return bestCost;
-    }
-
-    public List<Item> getElements() {
-        return elements;
-    }
-
-    public void setElements(List<Item> elements) {
-        this.elements = elements;
     }
 }
 

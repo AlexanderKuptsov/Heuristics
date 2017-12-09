@@ -17,10 +17,12 @@ public class Main {
         elements.add(new Item(14, 5));
         elements.add(new Item(6, 10));
         elements.add(new Item(5, 15));
-        elements.add(new Item(31, 10000));
         try {
-            Solver solver = new Solver(elements, 30);
-            solver.solving();
+            Genetic genetic = new Genetic(elements, 30);
+            genetic.solving();
+
+            AnnealingSimulation annealingSim = new AnnealingSimulation(elements, 30);
+            annealingSim.solving();
         } catch (IllegalArgumentException e) {
             System.err.println("Некорректные данные");
         }
