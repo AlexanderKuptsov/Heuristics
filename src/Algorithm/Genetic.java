@@ -13,8 +13,8 @@ public class Genetic {
         this.elements = elements;
         this.chrLength = elements.size();
         this.maxWeight = maxWeight;
-        this.generation = 100;
-        this.populationSize = 120;
+        this.generation = 150;
+        this.populationSize = 10;
         this.bestMutationChance = 75;
         this.worstMutationChance = 15;
         this.bestWeight = 0;
@@ -42,17 +42,18 @@ public class Genetic {
     }
 
     private boolean[] crossing(boolean[] chr1, boolean[] chr2) {
+        boolean[] newChr = chr1.clone();
         for (int i = 0; i < chrLength; i++) {
-            if (chr1[i] != chr2[i]) {
+            if (newChr[i] != chr2[i]) {
                 Random rnd = new Random();
-                chr1[i] = rnd.nextBoolean();
-                float f = fittingFunction(chr1);
+                newChr[i] = rnd.nextBoolean();
+                float f = fittingFunction(newChr);
                 if (f <= fittingFunction(chr1) && f <= fittingFunction(chr2)) {
-                    chr1[i] = chr2[i];
+                    newChr[i] = chr2[i];
                 }
             }
         }
-        return chr1;
+        return newChr;
     }
 
     private boolean[] mutation(boolean[] chr) {
@@ -164,6 +165,14 @@ public class Genetic {
 
     public float getBestCost() {
         return bestCost;
+    }
+
+    public void setGeneration(int generation) {
+        this.generation = generation;
+    }
+
+    public void setPopulationSize(int populationSize) {
+        this.populationSize = populationSize;
     }
 }
 

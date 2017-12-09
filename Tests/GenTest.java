@@ -100,8 +100,15 @@ public class GenTest {
         elements.add(new Item(1, 1.5f));
         elements.add(new Item(500, 10000));
 
+        Genetic genetic = new Genetic(elements, 60);
+        genetic.setPopulationSize(20);
+        genetic.setGeneration(2000);
+        genetic.solving();
+        assertEquals(60.0f, genetic.getBestWeight(), 0.1f);
+        assertEquals(178.5f, genetic.getBestCost(), 0.1f);
+
         AnnealingSimulation annealingSim = new AnnealingSimulation(elements, 60);
-        annealingSim.setT_start(500000);
+        annealingSim.setT_start(50000);
         annealingSim.solving();
         assertEquals(60.0f, annealingSim.getBestWeight(), 0.1f);
         assertEquals(178.5f, annealingSim.getBestCost(), 0.1f);

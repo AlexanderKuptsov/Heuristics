@@ -16,7 +16,7 @@ public class AnnealingSimulation {
         this.T_start = 10000;
         this.T_min = 1;
         this.T = T_start;
-        this.probabilityK = (float) Math.sqrt(T_start);
+        this.probabilityK = (float) Math.sqrt(T_start * 0.1f);
         this.decreasingK = T_start * 0.1f;
         this.iteration = 0;
         this.bestWeight = 0;
